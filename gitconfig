@@ -42,7 +42,7 @@
   su = submodule update --init --recursive --quiet
   who = blame -CCCw
 [user]
-  name = ☲ nathan
+  name = ♗ nathan
   email = elmoeleven@gmail.com
 [branch]
   autosetuprebase = always
