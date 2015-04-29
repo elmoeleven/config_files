@@ -7,7 +7,7 @@
   ui = 1
 [core]
   excludesfile = ~/.gitignore
-  editor = subl -w
+  editor = subl3 -w
   autocrlf = input
 [format]
   pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
@@ -31,7 +31,7 @@
   rc = rebase --continue
   ra = rebase --abort
   ri = rebase -i
-  me = log --date=local --pretty=short --author=pitr.vern@gmail.com --stat
+  me = log --date=local --pretty=short --author=elmoeleven@gmail.com --stat
   qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
   g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %C(yellow)%an%Creset)%Creset' --abbrev-commit --date=relative
   ci = commit
@@ -42,8 +42,8 @@
   su = submodule update --init --recursive --quiet
   who = blame -CCCw
 [user]
-  name = ☃ pitr
-  email = pitr.vern@gmail.com
+  name = ☲ nathan
+  email = elmoeleven@gmail.com
 [branch]
   autosetuprebase = always
 [credential]
