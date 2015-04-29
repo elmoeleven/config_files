@@ -29,7 +29,7 @@ function _parse_git_stash {
 }
 
 function _parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1^$(_parse_git_stash) /"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1 /"
 }
 
 function _parse_git_part {
@@ -45,13 +45,13 @@ function _parse_ruby_part {
 }
 
 function _print_prompt {
-  printf "$(_parse_git_part)"
+  printf "$RED$(_parse_git_part)$NONE"
 }
 
 function exitstatus {
   EXITSTATUS="$?"
 
-  PS1="\n\[\033[0;32m\]\w\[\033[0m\] - $RED$(_print_prompt)$NONE\n# "
+  PS1="\n\[\033[0;32m\]\w\[\033[0m\] $(_print_prompt)\n# "
 
   echo -ne "\033]0;${PWD##*/}\007"
 }
