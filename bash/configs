@@ -1,6 +1,6 @@
 shopt -s histappend
 
-export EDITOR="subl -w"
+export EDITOR="subl3 -w"
 
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
@@ -45,18 +45,14 @@ function _parse_ruby_part {
 }
 
 function _print_prompt {
-  printf "$(_parse_git_part)$(_parse_ruby_part)"
+  printf "$(_parse_git_part)"
 }
 
 function exitstatus {
   EXITSTATUS="$?"
 
-  if [ "$EXITSTATUS" -eq "0" ]
-  then
-    PS1="\n$GREEN\w$NONE \$(_print_prompt)\n${GREEN}✔$NONE "
-  else
-    PS1="\n$RED\w$NONE \$(_print_prompt)\n${RED}✘$NONE "
-  fi
+  PS1="\n\[\033[0;32m\]\w\[\033[0m\] - $RED$(_print_prompt)$NONE\n# "
+
   echo -ne "\033]0;${PWD##*/}\007"
 }
 

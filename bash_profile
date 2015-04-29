@@ -14,7 +14,7 @@ fi
 # first in PATH is bundler's bin folder
 export PATH=,:"${PATH}"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$HOME/code/sdk/platform-tools:$PATH"
 
 # {{{
 # Node Completion - Auto-generated, do not touch.

@@ -40,6 +40,8 @@ alias remigrate="rake db:migrate && rake db:migrate:redo"
 alias tlog='tail -f log/development.log'
 alias bi='bundle install --binstubs=, --path=.bundle/gems'
 alias bu='bundle update'
+alias be='bundle exec'
+alias ms="be rake db:migrate db:seed && be rake db:migrate db:seed RAILS_ENV=test"
 
 # git stuff
 g() {
@@ -84,6 +86,7 @@ alias ga="git a"
 alias gst="git st"
 alias gb="git b"
 alias gc="git c"
+alias gcm="git co master"
 alias gd="git d"
 alias gdc="git dc"
 alias gpl="git pl"
@@ -117,7 +120,7 @@ alias rs="rails s"
 alias rg="rails g"
 
 # other stuff
-#alias s="screen"
+alias r!="source ~/.bash_profile"
 
 # screen replacement
 alias tu="tmux"
@@ -125,7 +128,7 @@ alias tua="tmux attach -t"
 alias tun="tmux new -s"
 alias tus="tmux switch-client -t"
 
-alias e='subl .'
+alias e='subl3 .'
 
 # hack && ship
 alias hs="hack && ship"
