@@ -101,6 +101,8 @@ alias grc="git rc"
 alias gra="git ra"
 alias gf="git f"
 alias gup="git up"
+alias gm="git merge"
+alias gmm="git merge master"
 
 # git stash
 alias sta="git stash"
