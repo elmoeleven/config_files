@@ -39,6 +39,7 @@
   bs = bisect
   rb = rebase
   f = flow
+  sck = fsck
   su = submodule update --init --recursive --quiet
   who = blame -CCCw
 [user]

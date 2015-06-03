@@ -104,6 +104,7 @@ alias gf="git f"
 alias gup="git up"
 alias gm="git merge"
 alias gmm="git merge master"
+alias zom="git sck | cut -f3 -d' ' | xargs -n 1 git log -n 1 --pretty=oneline"
 
 # git stash
 alias sta="git stash"
