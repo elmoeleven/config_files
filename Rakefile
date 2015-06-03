@@ -36,9 +36,7 @@ task :install do
     Kernel.exec 'git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle'
   end
 
-  puts 'reloading...'
   Kernel.exec 'r!'
-  puts 'done!'
 end
 
 task :default => :install
