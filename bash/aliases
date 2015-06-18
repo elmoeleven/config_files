@@ -79,6 +79,12 @@ gbc() {
   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 }
 
+grn() {
+  git branch -m $1 $2
+  git push origin :$1
+  git push --set-upstream origin $2
+}
+
 alias gadd="git add -u && git add . && git status"
 alias gi="gem install"
 alias gs="git s"
