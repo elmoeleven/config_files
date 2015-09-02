@@ -132,6 +132,7 @@ alias rg="rails g"
 
 # other stuff
 alias r!="source ~/.bash_profile"
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
 # screen replacement
 alias tu="tmux"
