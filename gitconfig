@@ -15,6 +15,7 @@
   b = branch -a -v
   c = commit -m
   a = add
+  ap = add -p
   co = checkout
   d = diff --word-diff
   dc = diff --cached --word-diff

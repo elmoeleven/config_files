@@ -88,6 +88,7 @@ grn() {
 alias gadd="git add -u && git add . && git status"
 alias gi="gem install"
 alias gs="git s"
+alias gap="git ap"
 alias ga="git a"
 alias gst="git st"
 alias gb="git b"
