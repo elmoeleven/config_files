@@ -42,6 +42,7 @@
   f = flow
   sck = fsck
   su = submodule update --init --recursive --quiet
+  sc = stash clear
   who = blame -CCCw
 [user]
   name = ♗ nathan
