@@ -17,7 +17,7 @@
   a = add
   ap = add -p
   co = checkout
-  d = diff --word-diff
+  d = diff
   dc = diff --cached --word-diff
   pl = pull --rebase
   ps = push
