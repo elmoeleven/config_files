@@ -28,3 +28,5 @@ done
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+[ -s "/Users/nathan-uken/.dnx/dnvm/dnvm.sh" ] && . "/Users/nathan-uken/.dnx/dnvm/dnvm.sh" # Load dnvm
