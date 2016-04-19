@@ -58,7 +58,13 @@ gpr() {
   originurl=${originurl/\git:/https:}
   originurl=${originurl/\.git/}
   branchName=$(git rev-parse --abbrev-ref HEAD)
-  giturl=$originurl"/compare/"$branchName"?expand=1"
+
+  if [ $# -eq 0 ]; then
+    giturl=$originurl"/compare/"$branchName"?expand=1"
+  else
+    giturl=$originurl"/compare/"$1"..."$branchName"?expand=1"
+  fi
+
   open $giturl
 }
 
