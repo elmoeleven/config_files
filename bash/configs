@@ -2,7 +2,7 @@ shopt -s histappend
 
 export EDITOR="subl3 -w"
 
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
 shopt -s checkwinsize
 
