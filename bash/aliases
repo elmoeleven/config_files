@@ -53,6 +53,10 @@ g() {
   fi
 }
 
+gau() {
+  g | grep "UU" | xargs -n2 echo | sed 's/UU//' | xargs -n1 git add
+}
+
 gpr() {
   originurl=$(git config --get remote.origin.url)
   originurl=${originurl/git\@github\.com\:/https://github.com/}
