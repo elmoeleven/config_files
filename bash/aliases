@@ -29,9 +29,12 @@ function grep4 {
   }'
 }
 
-# open man pages in mate
-function tman {
-  MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
+space() {
+  if hash gsort 2>/dev/null; then
+    du -hs  * | gsort -hr
+  else
+    du -k * | sort -nr | cut -f2 | xargs du -sh
+  fi
 }
 
 # rails stuff
