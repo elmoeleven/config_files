@@ -19,39 +19,65 @@ fi
 # Make C-a/C-e work as home/end
 set -o emacs
 
-GREEN="\[\033[0;32m\]"
-WHITE="\[\033[1;37m\]"
-RED="\[\033[1;31m\]"
-NONE="\[\033[0m\]"
+# PS functions
+_ps1_fg() {
+  echo -n "\033[38;5;$1m"
+}
 
-function _parse_git_stash {
+_ps1_bg() {
+  echo -n "\033[48;5;$1m"
+}
+
+_ps1_clear() {
+  echo -n "\e[0m"
+}
+
+_parse_git_stash() {
   git stash list 2> /dev/null | wc -l | awk '{print $1}'
 }
 
-function _parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1 /"
+_parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
 }
 
-function _parse_git_part {
-  echo -n "$(_parse_git_branch)"
+_parse_git_part() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    echo -n "$(_separator)$(_add_bg 238)$(_ps1_fg 39) $(_parse_git_branch) ";
+  fi
 }
 
-function _parse_ruby_version {
+_add_bg() {
+  echo -n "$(_ps1_bg $1)$(_ps1_fg $1)"
+}
+
+_parse_ruby_version() {
   rbenv version-name
 }
 
-function _parse_ruby_part {
+_parse_ruby_part() {
   echo -n "(ruby-$(_parse_ruby_version))"
 }
 
-function _print_prompt {
-  printf "$RED$(_parse_git_part)$NONE"
+_print_prompt() {
+  printf "$(_parse_git_part)$(_ps1_clear)"
 }
 
-function exitstatus {
+_print_user() {
+  echo -n "$(_add_bg 234)$(_ps1_fg 112) \u $(_ps1_clear)"
+}
+
+_print_directory() {
+  echo -n "$(_add_bg 235)$(_ps1_fg 197) \w $(_ps1_clear)"
+}
+
+_separator() {
+  echo -n "$(_ps1_fg 255)|$(_ps1_clear)"
+}
+
+exitstatus() {
   EXITSTATUS="$?"
 
-  PS1="\n\[\033[0;32m\]\w\[\033[0m\] $(_print_prompt)\n# "
+  PS1="\n$(_print_user)$(_separator)$(_print_directory)$(_print_prompt)\n≫ "
 
   echo -ne "\033]0;${PWD##*/}\007"
 }
