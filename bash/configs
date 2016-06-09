@@ -77,7 +77,7 @@ _separator() {
 exitstatus() {
   EXITSTATUS="$?"
 
-  PS1="\n$(_print_user)$(_separator)$(_print_directory)$(_print_prompt)\n≫ "
+  PS1="\n$(_print_directory)$(_print_prompt)\n≫ "
 
   echo -ne "\033]0;${PWD##*/}\007"
 }

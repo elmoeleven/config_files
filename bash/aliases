@@ -152,6 +152,7 @@ alias rg="rails g"
 
 # other stuff
 alias r!="source ~/.bash_profile"
+alias configs="cd ~/.config_files"
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
 # screen replacement
