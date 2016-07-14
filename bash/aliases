@@ -31,7 +31,7 @@ function grep4 {
 
 space() {
   if hash gsort 2>/dev/null; then
-    du -hs  * | gsort -hr
+    du -hs * | gsort -hr
   else
     du -k * | sort -nr | cut -f2 | xargs du -sh
   fi
@@ -58,6 +58,10 @@ g() {
 
 gau() {
   g | grep "UU" | xargs -n2 echo | sed 's/UU//' | xargs -n1 git add
+}
+
+imgalpha() {
+  /Applications/ImageAlpha.app/Contents/MacOS/pngquant $2 $1/*png --ext .png --force
 }
 
 gpr() {
