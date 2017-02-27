@@ -116,6 +116,7 @@ alias gci="git ci"
 alias gca="git ca"
 alias gsc="git sc"
 alias gcln="git clean -fd"
+alias gcnv="git cnv"
 alias gcm="git co master"
 alias gd="git d"
 alias gdc="git dc"
@@ -152,7 +153,7 @@ alias ...='cd ../..'
 alias r="rails"
 alias rc="rails c"
 alias rs="rails s"
-alias rg="rails g"
+alias rgn="rails g"
 
 # other stuff
 alias r!="source ~/.bash_profile"

@@ -15,6 +15,7 @@
   b = branch -v
   bb = branch -a -v
   c = commit -m
+  cnv = commit -m --no-verify
   a = add
   ap = add -p
   co = checkout
