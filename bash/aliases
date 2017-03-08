@@ -56,12 +56,10 @@ g() {
   fi
 }
 
+alias changeset="~/.config_files/changeset.rb"
+
 gau() {
   g | grep "UU" | xargs -n2 echo | sed 's/UU//' | xargs -n1 git add
-}
-
-imgalpha() {
-  /Applications/ImageAlpha.app/Contents/MacOS/pngquant $2 $1/*png --ext .png --force
 }
 
 gpr() {
@@ -156,6 +154,10 @@ alias rs="rails s"
 alias rgn="rails g"
 
 # other stuff
+imgalpha() {
+  /Applications/ImageAlpha.app/Contents/MacOS/pngquant $2 $1/*png --ext .png --force
+}
+
 alias r!="source ~/.bash_profile"
 alias configs="cd ~/.config_files"
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
