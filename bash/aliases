@@ -37,6 +37,16 @@ space() {
   fi
 }
 
+exists() {
+  if type "$1" &> /dev/null; then
+    echo "true"
+    return 0
+  else
+    echo "false"
+    return 1
+  fi 
+}
+
 # rails stuff
 alias migrate="rake db:migrate"
 alias remigrate="rake db:migrate && rake db:migrate:redo"
