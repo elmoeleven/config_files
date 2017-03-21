@@ -42,7 +42,7 @@ _parse_git_branch() {
 
 _parse_git_part() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
-    echo -n "$(_separator)$(_add_bg 238)$(_ps1_fg 39) $(_parse_git_branch) ";
+    echo -n " at $(_ps1_fg 39)$(_parse_git_branch)";
   fi
 }
 
@@ -63,11 +63,11 @@ _print_prompt() {
 }
 
 _print_user() {
-  echo -n "$(_add_bg 234)$(_ps1_fg 112) \u $(_ps1_clear)"
+  echo -n "$(_ps1_fg 197)\u$(_ps1_clear)"
 }
 
 _print_directory() {
-  echo -n "$(_add_bg 235)$(_ps1_fg 197) \w $(_ps1_clear)"
+  echo -n " in $(_ps1_fg 112)\w$(_ps1_clear)"
 }
 
 _separator() {
@@ -77,7 +77,7 @@ _separator() {
 exitstatus() {
   EXITSTATUS="$?"
 
-  PS1="\n$(_print_directory)$(_print_prompt)\n≫ "
+  PS1="\n$(_print_user)$(_print_prompt)$(_print_directory)\n$ "
 
   echo -ne "\033]0;${PWD##*/}\007"
 }
