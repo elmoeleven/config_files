@@ -168,6 +168,9 @@ imgalpha() {
   /Applications/ImageAlpha.app/Contents/MacOS/pngquant $2 $1/*png --ext .png --force
 }
 
+# platterz specific stuff
+function p { cd ~/code/platterz/$1; }
+
 alias r!="source ~/.bash_profile"
 alias configs="cd ~/.config_files"
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
