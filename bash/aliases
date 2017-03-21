@@ -44,7 +44,7 @@ exists() {
   else
     echo "false"
     return 1
-  fi 
+  fi
 }
 
 # rails stuff
@@ -143,6 +143,7 @@ alias gup="git up"
 alias gm="git merge"
 alias gmm="git merge master"
 alias gsh="git sh"
+alias gsu="git su"
 alias zom="git sck | cut -f3 -d' ' | xargs -n 1 git log -n 1 --pretty=oneline"
 
 # git stash
@@ -157,11 +158,18 @@ function c { cd ~/code/$1; }
 alias ..='cd ..'
 alias ...='cd ../..'
 
-# rails3 stuff
+# rails stuff
 alias r="rails"
 alias rc="rails c"
 alias rs="rails s"
 alias rgn="rails g"
+
+# yarn stuff
+alias yi="yarn install"
+alias ya="yarn add"
+alias yad="yarn add --dev"
+alias yr="yarn remove"
+alias yu="yarn upgrade"
 
 # other stuff
 imgalpha() {
