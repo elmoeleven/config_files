@@ -1,51 +1,21 @@
-function hack {
-  CURRENT=`git branch | grep '\*' | awk '{print $2}'`
-  git checkout master
-  git pull origin master
-  git checkout ${CURRENT}
-  git rebase master
-}
+# file system stuff
+alias ls="ls -FhG"
+alias ll="ls -AlG"
+alias l="ls -AFG"
+alias ..='cd ..'
+alias ...='cd ../..'
 
-function ship {
-  CURRENT=`git branch | grep '\*' | awk '{print $2}'`
-  git checkout master
-  git merge ${CURRENT}
-  git push origin master
-  git checkout ${CURRENT}
-}
+# important stuff
+alias e='subl .'
+alias r!="source ~/.bash_profile"
+alias configs="c config_files"
+alias changeset="~/code/config_files/changeset.rb"
 
-function deploy {
-  CURRENT=`git branch | grep '\*' | awk '{print $2}'`
-  git checkout master
-  git push heroku master
-  git checkout ${CURRENT}
-}
-
-function grep4 {
-  sed -n '
-  '/$1/' !{;H;x;s/^.*\n\(.*\n.*\)$/\1/;x;}
-  '/$1/' {;H;n;H;x;p;a\
-  ---
-  }'
-}
-
-space() {
-  if hash gsort 2>/dev/null; then
-    du -hs * | gsort -hr
-  else
-    du -k * | sort -nr | cut -f2 | xargs du -sh
-  fi
-}
-
-exists() {
-  if type "$1" &> /dev/null; then
-    echo "true"
-    return 0
-  else
-    echo "false"
-    return 1
-  fi
-}
+# screen replacement stuff
+alias tu="tmux"
+alias tua="tmux attach -t"
+alias tun="tmux new -s"
+alias tus="tmux switch-client -t"
 
 # rails stuff
 alias migrate="rake db:migrate"
@@ -58,59 +28,6 @@ alias ms="be rake db:migrate db:seed && be rake db:migrate db:seed RAILS_ENV=tes
 alias msi="be rake db:migrate_and_seed && be rake db:migrate_and_seed RAILS_ENV=test"
 
 # git stuff
-g() {
-  if [[ $# == '0' ]]; then
-    git s
-  else
-    git "$@"
-  fi
-}
-
-alias changeset="~/code/config_files/changeset.rb"
-
-gau() {
-  g | grep "UU" | xargs -n2 echo | sed 's/UU//' | xargs -n1 git add
-}
-
-gpr() {
-  originurl=$(git config --get remote.origin.url)
-  originurl=${originurl/git\@github\.com\:/https://github.com/}
-  originurl=${originurl/\git:/https:}
-  originurl=${originurl/\.git/}
-  branchName=$(git rev-parse --abbrev-ref HEAD)
-
-  if [ $# -eq 0 ]; then
-    giturl=$originurl"/compare/"$branchName"?expand=1"
-  else
-    giturl=$originurl"/compare/"$1"..."$branchName"?expand=1"
-  fi
-
-  open $giturl
-}
-
-gbr() {
-  originurl=$(git config --get remote.origin.url | tr '[:upper:]' '[:lower:]')
-  originurl=${originurl/git\@bitbucket\.org\:/https://bitbucket.org/}
-  originurl=${originurl/\git:/https:}
-  originurl=${originurl/\.git/}
-
-  path=$(git config --get remote.origin.url | tr '[:upper:]' '[:lower:]' | sed -e 's/git@bitbucket.org://')
-
-  branchName=$(git rev-parse --abbrev-ref HEAD)
-  giturl=$originurl"/pull-request/new?source="$path"::"$branchName
-  open $giturl
-}
-
-gbc() {
-  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
-}
-
-grn() {
-  git branch -m $1 $2
-  git push origin :$1
-  git push --set-upstream origin $2
-}
-
 alias gadd="git add -u && git add . && git status"
 alias gi="gem install"
 alias gs="git s"
@@ -145,18 +62,8 @@ alias gmm="git merge master"
 alias gsh="git sh"
 alias gsu="git su"
 alias zom="git sck | cut -f3 -d' ' | xargs -n 1 git log -n 1 --pretty=oneline"
-
-# git stash
 alias sta="git stash"
 alias uns="git stash pop"
-
-# file system stuff
-alias ls="ls -FhG"
-alias ll="ls -AlG"
-alias l="ls -AFG"
-function c { cd ~/code/$1; }
-alias ..='cd ..'
-alias ...='cd ../..'
 
 # rails stuff
 alias r="rails"
@@ -171,29 +78,114 @@ alias yad="yarn add --dev"
 alias yr="yarn remove"
 alias yu="yarn upgrade"
 
-# other stuff
-imgalpha() {
-  /Applications/ImageAlpha.app/Contents/MacOS/pngquant $2 $1/*png --ext .png --force
+# gulp stuff
+alias serve="gulp serve"
+
+# functions
+g() {
+  if [[ $# == '0' ]]; then
+    git s
+  else
+    git "$@"
+  fi
 }
 
-# platterz specific stuff
-function p { cd ~/code/platterz/$1; }
+c() {
+  cd ~/code/$1;
+}
 
-alias r!="source ~/.bash_profile"
-alias configs="cd ~/.config_files"
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+gau() {
+  g | grep "UU" | xargs -n2 echo | sed 's/UU//' | xargs -n1 git add
+}
 
-# screen replacement
-alias tu="tmux"
-alias tua="tmux attach -t"
-alias tun="tmux new -s"
-alias tus="tmux switch-client -t"
+gpr() {
+  originurl=$(git config --get remote.origin.url)
+  originurl=${originurl/git\@github\.com\:/https://github.com/}
+  originurl=${originurl/\git:/https:}
+  originurl=${originurl/\.git/}
+  branchName=$(git rev-parse --abbrev-ref HEAD)
 
-alias e='subl .'
+  if [ $# -eq 0 ]; then
+    giturl=$originurl"/compare/"$branchName"?expand=1"
+  else
+    giturl=$originurl"/compare/"$1"..."$branchName"?expand=1"
+  fi
 
-# hack && ship
-alias hs="hack && ship"
-alias hsd="hack && ship && deploy"
-alias hrs="hack && rake && ship"
+  open $giturl
+}
 
-alias pp="git pull --rebase && git push"
+gbr() {
+  originurl=$(git config --get remote.origin.url | tr '[:upper:]' '[:lower:]')
+  originurl=${originurl/git\@bitbucket\.org\:/https://bitbucket.org/}
+  originurl=${originurl/\git:/https:}
+  originurl=${originurl/\.git/}
+
+  path=$(git config --get remote.origin.url | tr '[:upper:]' '[:lower:]' | sed -e 's/git@bitbucket.org://')
+
+  branchName=$(git rev-parse --abbrev-ref HEAD)
+  giturl=$originurl"/pull-request/new?source="$path"::"$branchName
+
+  open $giturl
+}
+
+gbc() {
+  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+}
+
+grn() {
+  git branch -m $1 $2
+  git push origin :$1
+  git push --set-upstream origin $2
+}
+
+imgalpha() {
+  pngquant=/Applications/ImageAlpha.app/Contents/MacOS/pngquant
+
+  if ! exists $pngquant; then
+    echo "ImageAlpha not installed"
+    return
+  fi
+
+  if ! [[ "$#" -eq 2 ]]; then
+    echo 'ImageAlpha needs params'
+    return
+  fi
+
+  $pngquant $2 $1/*png --ext .png --force
+}
+
+has_pngs() {
+  if [[ $(ls -A | grep *png) ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+grep4() {
+  sed -n '
+  '/$1/' !{;H;x;s/^.*\n\(.*\n.*\)$/\1/;x;}
+  '/$1/' {;H;n;H;x;p;a\
+  ---
+  }'
+}
+
+space() {
+  if hash gsort 2>/dev/null; then
+    du -hs * | gsort -hr
+  else
+    du -k * | sort -nr | cut -f2 | xargs du -sh
+  fi
+}
+
+exists() {
+  if type "$1" &> /dev/null; then\
+    return 0
+  else
+    return 1
+  fi
+}
+
+p() {
+  cd ~/code/platterz/$1;
+}
