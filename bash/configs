@@ -1,6 +1,6 @@
 shopt -s histappend
 
-export EDITOR="subl3 -w"
+export EDITOR="subl -w"
 
 export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
