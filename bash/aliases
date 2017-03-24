@@ -185,7 +185,3 @@ exists() {
     return 1
   fi
 }
-
-p() {
-  cd ~/code/platterz/$1;
-}
