@@ -59,6 +59,7 @@ alias gf="git f"
 alias gup="git up"
 alias gm="git merge"
 alias gmm="git merge master"
+alias gmd="git merge develop"
 alias gsh="git sh"
 alias gsu="git su"
 alias zom="git sck | cut -f3 -d' ' | xargs -n 1 git log -n 1 --pretty=oneline"
@@ -79,7 +80,7 @@ alias yr="yarn remove"
 alias yu="yarn upgrade"
 
 # gulp stuff
-alias serve="gulp serve"
+alias s="gulp serve"
 
 # functions
 g() {
