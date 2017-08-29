@@ -43,6 +43,7 @@ alias gsc="git sc"
 alias gcln="git clean -fd"
 alias gcnv="git cnv"
 alias gcm="git co master"
+alias gcd="git co develop"
 alias gd="git d"
 alias gdc="git dc"
 alias gpl="git pl"
@@ -88,6 +89,14 @@ g() {
     git s
   else
     git "$@"
+  fi
+}
+
+cpb() {
+  if type "$1" &> /dev/null; then\
+    changeset $1 | pbcopy
+  else
+    changeset develop | pbcopy
   fi
 }
 
