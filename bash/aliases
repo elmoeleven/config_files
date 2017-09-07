@@ -80,9 +80,6 @@ alias yad="yarn add --dev"
 alias yr="yarn remove"
 alias yu="yarn upgrade"
 
-# gulp stuff
-alias s="gulp serve"
-
 # functions
 g() {
   if [[ $# == '0' ]]; then
