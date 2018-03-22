@@ -24,8 +24,7 @@ alias tlog='tail -f log/development.log'
 alias bi='bundle install --binstubs=, --path=.bundle/gems'
 alias bu='bundle update'
 alias be='bundle exec'
-alias ms="be rake db:migrate db:seed && be rake db:migrate db:seed RAILS_ENV=test"
-alias msi="be rake db:migrate_and_seed && be rake db:migrate_and_seed RAILS_ENV=test"
+alias ms="rails db:migrate db:seed"
 
 # git stuff
 alias gadd="git add -u && git add . && git status"
