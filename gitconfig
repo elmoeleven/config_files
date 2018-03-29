@@ -41,7 +41,7 @@
   ca = commit --amend
   bs = bisect
   rb = rebase
-  f = flow
+  f = fetch
   sc = stash clear
   sck = fsck
   sh = show
