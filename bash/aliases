@@ -144,6 +144,10 @@ grn() {
   git push --set-upstream origin $2
 }
 
+rename_batch() {
+  ls | sed -e "p;s/$1/$2/g" | xargs -n2 mv
+}
+
 imgalpha() {
   pngquant=/Applications/ImageAlpha.app/Contents/MacOS/pngquant
 
