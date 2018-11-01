@@ -135,7 +135,7 @@ gbr() {
 }
 
 gbc() {
-  git branch -vv | grep ": gone]" | cut -c 3- | awk '$3 { print $1 }' | xargs -n 1 git branch -D
+  git branch -v | grep ": gone]" | cut -c 3- | awk '$3 { print $1 }' | xargs -n 1 git branch -D
 }
 
 grn() {
