@@ -33,6 +33,7 @@
   r = remote -v
   rc = rebase --continue
   ra = rebase --abort
+  rs = rebase --skip
   ri = rebase -i
   me = log --date=local --pretty=short --author=elmoeleven@gmail.com --stat
   qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master

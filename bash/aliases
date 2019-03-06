@@ -4,6 +4,8 @@ alias ll="ls -AlG"
 alias l="ls -AFG"
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
 
 # important stuff
 alias e='subl .'
@@ -54,6 +56,7 @@ alias gbs="git bs"
 alias grb="git rb"
 alias grc="git rc"
 alias gra="git ra"
+alias grs="git rs"
 alias gri="git ri"
 alias gf="git f"
 alias gup="git up"
@@ -85,6 +88,14 @@ g() {
     git s
   else
     git "$@"
+  fi
+}
+
+gpo() {
+  if [[ $# == '0' ]]; then
+    gpl origin develop
+  else
+    gpl origin "$@"
   fi
 }
 
@@ -135,7 +146,7 @@ gbr() {
 }
 
 gbc() {
-  git branch -v | grep ": gone]" | cut -c 3- | awk '$3 { print $1 }' | xargs -n 1 git branch -D
+  git branch -v | grep "gone" | cut -c 3- | awk '$3 { print $1 }' | xargs -n 1 git branch -D
 }
 
 grn() {

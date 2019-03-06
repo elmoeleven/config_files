@@ -11,9 +11,6 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-# first in PATH is bundler's bin folder
-export PATH=,:"${PATH}"
-
 export PATH="$HOME/code/sdk/platform-tools:$PATH"
 
 # {{{
@@ -34,3 +31,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export PATH="/Users/nathan/.cargo/bin:$PATH"
+
+# first in PATH is bundler's bin folder
+export PATH=,:"${PATH}"
