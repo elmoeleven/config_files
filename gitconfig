@@ -10,7 +10,7 @@
   editor = $EDITOR
   autocrlf = input
 [format]
-  pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
+  pretty = %C(yellow)%h%Creset %Cred[%cr]%Creset %Cblue(%an) %Cgreen%d %Creset%s
 [alias]
   b = branch -vv
   bb = branch  -vv

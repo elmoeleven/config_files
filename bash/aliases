@@ -94,6 +94,14 @@ g() {
   fi
 }
 
+glg() {
+  if [[ $# == '0' ]]; then
+    git log -n 10
+  else
+    git log -n $1
+  fi
+}
+
 gpo() {
   if [[ $# == '0' ]]; then
     gpl origin develop
@@ -184,6 +192,10 @@ has_pngs() {
   else
     return 1
   fi
+}
+
+gbd() {
+  git branch -vv | grep $1 | awk '{$1=$1}1' | cut -d' ' -f1 | xargs -n 1 git branch -D
 }
 
 grep4() {
