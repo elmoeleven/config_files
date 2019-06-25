@@ -46,7 +46,7 @@
   sc = stash clear
   sck = fsck
   sh = show
-  su = submodule update --init --recursive --quiet
+  su = submodule update --init --recursive
   who = blame -CCCw
 [user]
   name = ♗ nathan
