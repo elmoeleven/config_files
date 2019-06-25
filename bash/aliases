@@ -170,6 +170,16 @@ rename_batch() {
   ls | sed -e "p;s/$1/$2/g" | xargs -n2 mv
 }
 
+bump_rcs() {
+  cd $1
+  gup
+  g co rc
+  cd src/common && gup && g co rc && ...
+  ga src/common
+  gc "Bump \`common\` reference."
+  gps
+}
+
 imgalpha() {
   pngquant=/Applications/ImageAlpha.app/Contents/MacOS/pngquant
 
