@@ -231,3 +231,7 @@ exists() {
     return 1
   fi
 }
+
+copy_heroku_config() {
+  heroku config -s -a $1 | tr '\n' ' ' | xargs heroku config:set -a $2
+}

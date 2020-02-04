@@ -90,3 +90,6 @@ npm-debug.log
 
 .powenv
 .powder
+
+# Sublime
+*.sublime-*

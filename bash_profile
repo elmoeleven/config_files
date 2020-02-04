@@ -28,8 +28,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 [ -s "/Users/nathan-uken/.dnx/dnvm/dnvm.sh" ] && . "/Users/nathan-uken/.dnx/dnvm/dnvm.sh" # Load dnvm
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 export PATH="/Users/nathan/.cargo/bin:$PATH"
 
 # first in PATH is bundler's bin folder
