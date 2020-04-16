@@ -30,5 +30,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="/Users/nathan/.cargo/bin:$PATH"
 
+export PATH="/Users/nathan/Library/Python/3.7/bin:$PATH"
+
 # first in PATH is bundler's bin folder
 export PATH=,:"${PATH}"
